@@ -10,6 +10,9 @@
 	<!-- 	<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property> -->
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">none</property>
-		<mapping resource="Job.hbm.xml" /> 
+	
+	 	<mapping resource="Hurtownia.hbm.xml" /> 
+		<mapping resource="Kawiarnia.hbm.xml" />  
+		<mapping resource="Zamowienie.hbm.xml" />   
 	</session-factory>
 </hibernate-configuration>

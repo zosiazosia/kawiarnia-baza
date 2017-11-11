@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="hibernate.Hurtownia" table="sys.HURTOWNIA">
+        <id name="id" type="java.lang.Integer" column="ID">
+            <generator class="assigned" />
+        </id>
+        <property name="nazwa" type="java.lang.String"  column="NAZWA" />
+        <property name="adres" type="java.lang.String"  column="ADRES" />
+        <property name="typ" type="java.lang.String"  column="TYP" />
+    </class>
+</hibernate-mapping>

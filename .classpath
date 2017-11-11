@@ -32,20 +32,33 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/antlr-2.7.6.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/asm-attrs.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/asm.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/c3p0-0.9.1.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/cglib-2.1.3.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/commons-collections-2.1.1.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/commons-logging-1.0.4.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/ehcache-1.2.3.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/hibernate3.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/jta.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/log4j-1.2.11.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/mysql-connector-java-5.1.20-bin.jar"/>
-	<classpathentry kind="lib" path="/HibernateWebApp/WebContent/WEB-INF/lib/xerces-2.6.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/zosiarytlewska/.m2/repository/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="D:/jary/xerces-2.6.2.jar"/>
+	<classpathentry kind="lib" path="D:/jary/mysql-connector-java-5.1.20-bin.jar"/>
+	<classpathentry kind="lib" path="D:/jary/log4j-1.2.11.jar"/>
+	<classpathentry kind="lib" path="D:/jary/jta.jar"/>
+	<classpathentry kind="lib" path="D:/jary/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/jary/javax.servlet-api-3.1.0.jar" sourcepath="C:/Users/ktrzn/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar"/>
+	<classpathentry kind="lib" path="D:/jary/jasypt-1.9.2.jar"/>
+	<classpathentry kind="lib" path="D:/jary/hibernate3.jar"/>
+	<classpathentry kind="lib" path="D:/jary/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/jary/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/jary/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="D:/jary/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/jary/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/jary/commons-codec-1.1.jar"/>
+	<classpathentry kind="lib" path="D:/jary/cglib-2.1.3.jar"/>
+	<classpathentry kind="lib" path="D:/jary/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="D:/jary/asm-attrs.jar"/>
+	<classpathentry kind="lib" path="D:/jary/asm.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate/hibernate-release-5.1.0.Final/lib/required/classmate-1.3.0.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate/hibernate-release-5.1.0.Final/lib/required/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate/hibernate-release-5.1.0.Final/lib/required/geronimo-jta_1.1_spec-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate/hibernate-release-5.1.0.Final/lib/required/hibernate-commons-annotations-5.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate/hibernate-release-5.1.0.Final/lib/required/hibernate-core-5.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate/hibernate-release-5.1.0.Final/lib/required/jandex-2.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate/hibernate-release-5.1.0.Final/lib/required/javassist-3.20.0-GA.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate/hibernate-release-5.1.0.Final/lib/required/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="D:/jary/antlr-2.7.7.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
