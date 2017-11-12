@@ -11,6 +11,12 @@ public class Zamowienie {
 	private String data;
 	
 	public Zamowienie(){}
+	public Zamowienie(Integer id, Kawiarnia kId, Hurtownia hId, String data){
+		this.id=id;
+		this.kawiarnia_id=kId;
+		this.hurtownia_id=hId;
+		this.data=data;
+	}
 	
 	public Integer getId() {
 		return id;

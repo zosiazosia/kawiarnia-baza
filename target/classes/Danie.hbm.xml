@@ -2,14 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="hibernate.Hurtownia" table="sys.HURTOWNIA">
+    <class name="hibernate.Danie" table="sys.Danie">
         <id name="id" type="java.lang.Integer" column="ID">
             <generator class="sequence">
-            	<param name="sequence">hurtownia_seq</param>
+            	<param name="sequence">danie_seq</param>
             </generator>
         </id>
-        <property name="nazwa" type="java.lang.String"  column="NAZWA" />
-        <property name="adres" type="java.lang.String"  column="ADRES" />
-        <property name="typ" type="java.lang.String"  column="TYP" />
+        <property name="cena" type="java.lang.Float"  column="cena" />
+        <property name="nazwa" type="java.lang.String" column="nazwa" />
     </class>
 </hibernate-mapping>

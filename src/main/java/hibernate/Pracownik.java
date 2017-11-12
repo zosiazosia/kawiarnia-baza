@@ -1,9 +1,24 @@
 package hibernate;
 
 public class Pracownik {
-	private Integer id, pozostala_ilosc_dni_urlopu, kawiarnia_id;
+	private Integer id, pozostala_ilosc_dni_urlopu;
+	private Kawiarnia kawiarnia_id;
 	private String imie, nazwisko, telefon, stanowisko;
 	private Float stawka_godzinowa;
+	
+	public Pracownik(){}
+	public Pracownik (Integer id, String imie, String nazwisko, String telefon, 
+			String stanowisko, Float stawka, Integer urlop, Kawiarnia kawiarnia_id){
+		this.id=id;
+		this.imie=imie;
+		this.nazwisko=nazwisko;
+		this.telefon=telefon;
+		this.stanowisko=stanowisko;
+		this.stawka_godzinowa=stawka;
+		this.pozostala_ilosc_dni_urlopu=urlop;
+		this.kawiarnia_id=kawiarnia_id;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -16,10 +31,10 @@ public class Pracownik {
 	public void setPozostala_ilosc_dni_urlopu(Integer pozostala_ilosc_dni_urlopu) {
 		this.pozostala_ilosc_dni_urlopu = pozostala_ilosc_dni_urlopu;
 	}
-	public Integer getKawiarnia_id() {
+	public Kawiarnia getKawiarnia() {
 		return kawiarnia_id;
 	}
-	public void setKawiarnia_id(Integer kawiarnia_id) {
+	public void setKawiarnia(Kawiarnia kawiarnia_id) {
 		this.kawiarnia_id = kawiarnia_id;
 	}
 	public String getImie() {

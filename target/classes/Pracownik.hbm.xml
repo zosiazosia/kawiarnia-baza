@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="hibernate.Pracownik" table="sys.Pracownik">
+        <id name="id" type="java.lang.Integer" column="ID">
+            <generator class="sequence">
+            	<param name="sequence">pracownik_seq</param>
+            </generator>
+        </id>
+        <property name="imie" type="java.lang.String"  column="imie" />
+        <property name="nazwisko" type="java.lang.String"  column="nazwisko" />
+        <property name="telefon" type="java.lang.String"  column="telefon" />
+        <property name="stawka_godzinowa" type="java.lang.Float"  column="stawka_godzinowa" />
+        <property name="stanowisko" type="java.lang.String"  column="stanowisko" />
+        <property name="pozostala_ilosc_dni_urlopu" type="java.lang.Integer"  column="pozostala_ilosc_dni_urlopu" />
+        <many-to-one name="kawiarnia" class="hibernate.Kawiarnia"
+        	column="kawiarnia_id" not-null="true" cascade="all"/>
+    </class>
+</hibernate-mapping>

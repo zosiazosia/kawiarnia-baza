@@ -8,11 +8,15 @@
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
 		<property name="hibernate.connection.username">a</property>
 	<!-- 	<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property> -->
+		<property name="hibernate.connection.isolation">8</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">none</property>
 	
 	 	<mapping resource="Hurtownia.hbm.xml" /> 
 		<mapping resource="Kawiarnia.hbm.xml" />  
 		<mapping resource="Zamowienie.hbm.xml" />   
+		<mapping resource="Pracownik.hbm.xml" />   
+		<mapping resource="Danie.hbm.xml" />   
+		<mapping resource="Oferuje.hbm.xml" />   
 	</session-factory>
 </hibernate-configuration>

@@ -11,7 +11,12 @@ public class Kawiarnia {
 	private String nazwa;
 
 	public Kawiarnia(){}
-	
+	public Kawiarnia(Integer id, String nazwa, String adres, Integer il_gwiazdek){
+		this.id=id;
+		this.ilosc_gwiazdek_michelin=il_gwiazdek;
+		this.adres=adres;
+		this.nazwa=nazwa;
+	}
 	public Integer getId() {
 		return id;
 	}

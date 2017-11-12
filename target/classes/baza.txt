@@ -1,0 +1,85 @@
+create table Hurtownia(id integer PRIMARY KEY,
+	adres varchar(50), 
+	nazwa varchar(30),
+	typ varchar(30));
+	
+create table Kawiarnia (id integer PRIMARY KEY,
+	adres varchar(50), 
+	nazwa varchar(30),
+	ilosc_gwiazdek_michelin integer);
+	
+create table Zamowienie (id integer PRIMARY KEY, 
+	data varchar(15),
+	kawiarnia_id integer,
+	hurtownia_id integer,
+	FOREIGN KEY(kawiarnia_id) REFERENCES Kawiarnia(id),
+	FOREIGN KEY(hurtownia_id) REFERENCES Hurtownia(id));
+
+create table Pracownik (id integer PRIMARY KEY, 
+	imie varchar(20), 
+	nazwisko varchar(30), 
+	telefon varchar(12), 
+	stawka_godzinowa real, 
+	stanowisko varchar(30),
+	pozostala_ilosc_dni_urlopu integer,
+	kawiarnia_id integer,
+	FOREIGN KEY(kawiarnia_id) REFERENCES Kawiarnia(id));
+	
+create table Danie (id integer PRIMARY KEY,
+	cena real,
+	nazwa varchar(30));
+	
+create table Oferuje (
+	kawiarnia_id integer,
+	danie_id integer,
+	PRIMARY KEY(kawiarnia_id, danie_id),
+	FOREIGN KEY(kawiarnia_id) REFERENCES Kawiarnia(id),
+	FOREIGN KEY(danie_id) REFERENCES Danie(id));
+	
+grant sysdba to a with admin option;
+grant all on hurtownia to a;
+grant all on kawiarnia to a;
+grant all on zamowienie to a;
+grant all on pracownik to a;
+grant all on danie to a;
+grant all on oferuje to a;
+
+create sequence hurtownia_seq start with 1 increment by 1 nomaxvalue;
+create sequence kawiarnia_seq start with 1 increment by 1 nomaxvalue;
+create sequence pracownik_seq start with 1 increment by 1 nomaxvalue;
+create sequence danie_seq start with 1 increment by 1 nomaxvalue;
+create sequence zamowienie_seq start with 1 increment by 1 nomaxvalue;
+
+grant all on hurtownia_seq to a;
+grant all on kawiarnia_seq to a;
+grant all on pracownik_seq to a;
+grant all on danie_seq to a;
+grant all on zamowienie_seq to a;
+
+create public synonym hurtownia_seq for sys.hurtownia_seq;
+create public synonym kawiarnia_seq for sys.kawiarnia_seq;
+create public synonym pracownik_seq for sys.pracownik_seq;
+create public synonym danie_seq for sys.danie_seq;
+create public synonym zamowienie_seq for sys.zamowienie_seq;
+
+drop table oferuje;
+drop table danie;
+drop table pracownik;
+drop table zamowienie;
+drop table hurtownia;
+drop table kawiarnia;
+
+1.Jakie dania w jakiej kawiarni?
+select k.nazwa, d.nazwa, d.cena from kawiarnia k, danie d, oferuje o where
+o.kawiarnia_id=k.id and o.danie_id=d.id;
+
+		
+	/*	Hurtownia h1 = dodajHurtownie("hurtpol", "lesna 12", "baristyczna");		
+		Kawiarnia k1 = dodajKawiarnie("checz", "kasperska 4", 3);
+		Zamowienie z1 = dodajZamowienie("2017-12-14", k1, h1);
+		Pracownik p1 = dodajPracownika("monika", "nowak", "235498728", (float) 15.0, "barmanka", 12, k1);
+		Danie d1 = dodajDanie("kawa", (float) 6.0);
+		Danie d2 = dodajDanie("kawa biala", (float) 7.0);
+		Oferuje o1 = dodajOferuje(k1, d1);
+		Oferuje o2 = dodajOferuje(k1, d2);
+		 */

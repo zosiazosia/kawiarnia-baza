@@ -4,6 +4,13 @@ public class Danie {
 	private Integer id;
 	private Float cena;
 	private String nazwa;
+	
+	public Danie(){}
+	public Danie(Integer id, String n, Float c){
+		this.id=id;
+		this.cena=c;
+		this.nazwa=n;
+	}
 	public Integer getId() {
 		return id;
 	}

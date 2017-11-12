@@ -2,14 +2,18 @@ package hibernate;
 
 public class Hurtownia {
 
-	private Integer id;
-	
+	private Integer id;	
 	private String adres;
 	private String nazwa;
 	private String typ;
 	
 	public Hurtownia(){}
-	
+	public Hurtownia(Integer id, String nazwa, String adres, String typ){
+		this.id = id;
+		this.adres=adres;
+		this.nazwa=nazwa;
+		this.typ=typ;
+	}
 	public Integer getId() {
 		return id;
 	}
