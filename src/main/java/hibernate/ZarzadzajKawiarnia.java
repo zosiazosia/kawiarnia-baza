@@ -17,31 +17,32 @@ public class ZarzadzajKawiarnia {
 		wypelnijDanymi = new WypelnijDanymi(factory);
 	//	pokazDaniaKawiarni(17);
 	//	pokazPracownikow(1);
-	//	wyliczSredniaStawkeWKawiarni(1);
+		wyliczSredniaStawkeWKawiarni();
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	/*	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String in = br.readLine();
 		if (in.equals(new String("wait"))){
 			longTransaction();
 		}
 		else if (in.equals(new String("show"))){
 			pokazPracownikow(1);
-		}
+		}*/
 		factory.close();
 	}
 	
-	public static void wyliczSredniaStawkeWKawiarni(int kawiarnia_id){
+	public static void wyliczSredniaStawkeWKawiarni(){
 		Session s = factory.openSession();
-		//	Transaction t  = s.beginTransaction();
-			
-			List<Pracownik> pracownicy = s.createQuery("FROM Pracownik WHERE kawiarnia_id='" + kawiarnia_id+"'").list();
-			
-			for (Pracownik p : pracownicy){
-				System.out.println(p.getImie() + " " + p.getNazwisko());
-			}
-			
-		//	t.commit();
-			s.close();
+		Transaction t  = s.beginTransaction();
+		
+		List list = s.createQuery("SELECT avg(stawka_godzinowa) "
+				+ "FROM Pracownik GROUP BY kawiarnia_id").list();
+		
+		for (Object i : list){
+			System.out.println(i);
+		}
+		
+		t.commit();
+		s.close();
 	}
 	
 	public static void dodajDane() throws IOException{
@@ -63,6 +64,12 @@ public class ZarzadzajKawiarnia {
 			e.printStackTrace();
 		}
 		switch (choice){
+			case "u":
+				System.out.println("wybierz tabele do operacji update");	
+			case "d":
+				System.out.println("wybierz tabele do operacji delete");		
+			case "r":
+				System.out.println("wybierz tabele do operacji read");	
 			case "1": //danie
 				
 				break;

@@ -4,9 +4,6 @@
 <hibernate-mapping>
     <class name="hibernate.Oferuje" table="sys.Oferuje">
         <composite-id>
-        <!--     <key-property name="kawiarnia_id" column="kawiarnia_id" />
-            <key-property name="danie_id" column="danie_id"/>  
-             not-null="true" cascade="all" update="false" insert="false"/>-->
         <key-many-to-one name="kawiarnia_id" class="hibernate.Kawiarnia"
         	column="kawiarnia_id"/>
        	<key-many-to-one name="danie_id" class="hibernate.Danie"
