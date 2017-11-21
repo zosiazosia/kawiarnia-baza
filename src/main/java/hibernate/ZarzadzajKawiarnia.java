@@ -15,82 +15,57 @@ public class ZarzadzajKawiarnia {
 	public static void main(String[] args) throws Exception {
 		factory = new Configuration().configure().buildSessionFactory();
 		wypelnijDanymi = new WypelnijDanymi(factory);
-	//	pokazDaniaKawiarni(17);
-	//	pokazPracownikow(1);
-		wyliczSredniaStawkeWKawiarni();
+	//	wypelnijDanymi.dodajWszystko();
 		
-	/*	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String in = br.readLine();
-		if (in.equals(new String("wait"))){
-			longTransaction();
+		srednieStawki();
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String in;
+		while(!(in = br.readLine()).equals("exit")){
+			Session s = null;
+			Transaction t = null;
+			if (in.equals("long")) {
+				longTransaction();
+			}
+			else if (in.equals("show")){
+				pokazPracownikow();
+			}
+			else {
+				try {
+					s = factory.openSession();
+					t  = s.beginTransaction();
+				
+					List list = s.createQuery(in).list();
+					
+					for (Object i : list){
+						System.out.println(i.toString());
+					}
+				}
+				catch(Exception ex){
+					System.err.println(ex.getMessage());
+				}
+				finally{
+					t.commit();
+					s.close();
+				}
+			}
 		}
-		else if (in.equals(new String("show"))){
-			pokazPracownikow(1);
-		}*/
 		factory.close();
 	}
 	
-	public static void wyliczSredniaStawkeWKawiarni(){
+	public static void srednieStawki(){
 		Session s = factory.openSession();
 		Transaction t  = s.beginTransaction();
 		
-		List list = s.createQuery("SELECT avg(stawka_godzinowa) "
-				+ "FROM Pracownik GROUP BY kawiarnia_id").list();
-		
-		for (Object i : list){
-			System.out.println(i);
+		List<Object[]> list = s.createQuery("SELECT avg(stawka_godzinowa), kawiarnia_id.id, kawiarnia_id.nazwa FROM Pracownik GROUP BY kawiarnia_id.id, kawiarnia_id.nazwa ORDER BY 2").list();
+		for (Object[] i : list){
+			System.out.println("Kawiarnia: "+  i[1] + " "+i[2]+";\t œrednia stawka: " + i[0]);
 		}
-		
+				
 		t.commit();
 		s.close();
 	}
-	
-	public static void dodajDane() throws IOException{
-		System.out.println("Zarzadzanie kawiarnia.");
-		System.out.println("Wybierz tabele: "
-				+ "\n1. Danie"
-				+ "\n2. Hurtownia"
-				+ "\n3. Kawiarnia"
-				+ "\n4. Oferta dania"
-				+ "\n5. Pracownik"
-				+ "\n6. Zamowienie");
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String choice = null;
-		try {
-			choice = br.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		switch (choice){
-			case "u":
-				System.out.println("wybierz tabele do operacji update");	
-			case "d":
-				System.out.println("wybierz tabele do operacji delete");		
-			case "r":
-				System.out.println("wybierz tabele do operacji read");	
-			case "1": //danie
-				
-				break;
-			case "2": //hurtownia
-				break;
-			case "3": //kawiarnia
-				break;
-			case "4": //oferuje
-				break;
-			case "5": //pracownik
-				break;
-			case "6": //zamowienie
-				break;
-			default:
-				System.out.println("Niepoprawny wybor");
-				choice = br.readLine();
-					
-		}
-		
-	}
-	
 	public static void dodajZamowienie(){
 		Session s = factory.openSession();
 		List<Kawiarnia> kawiarnie = s.createQuery("FROM Kawiarnia").list();
@@ -118,7 +93,7 @@ public class ZarzadzajKawiarnia {
 		
 	}
 	
-	public static void pokazPracownikow(Integer kawiarnia_id){
+	public static void pokazPracownikow(){
 		Session s = null;
 		Transaction t  = null; 
 		try{
@@ -127,9 +102,9 @@ public class ZarzadzajKawiarnia {
 			t = s.beginTransaction();
 			t.setTimeout(20000);
 			int result = s.createQuery("update Pracownik "
-					+ "SET imie='agnieszka' WHERE id=2").executeUpdate();
+					+ "SET imie='agnieszka' WHERE id=1").executeUpdate();
 			
-			List<Pracownik> pracownicy = s.createQuery("FROM Pracownik WHERE kawiarnia_id='" + kawiarnia_id+"'").list();
+			List<Pracownik> pracownicy = s.createQuery("FROM Pracownik WHERE id=1").list();
 			
 			for (Pracownik p : pracownicy){
 				System.out.println(p.getImie() + " " + p.getNazwisko());
@@ -151,19 +126,17 @@ public class ZarzadzajKawiarnia {
 		try {
 			s = factory.openSession();		
 			t = s.beginTransaction();
-		/*	t.setTimeout(20000); 
-			Kawiarnia k = (Kawiarnia) s.createQuery("FROM Kawiarnia WHERE id=1").list().get(0);
+			t.setTimeout(20000); 
+		/*	Kawiarnia k = (Kawiarnia) s.createQuery("FROM Kawiarnia WHERE id=1").list().get(0);
 			Pracownik p = wypelnijDanymi.dodajPracownika("tomasz", "el","869487321", (float)15.0, 
-					"sprzatacz", 10, k);*/
-	//		Integer hID = (Integer) s.save(p);
+					"sprzatacz", 10, k);
+			Integer hID = (Integer) s.save(p);*/
 			System.out.println("wait starts");
 			int result = s.createQuery("update Pracownik "
-					+ "SET imie='lolita' WHERE id=4").executeUpdate();
+					+ "SET imie='malgorzata' WHERE id=1").executeUpdate();
 			
 			Thread.sleep(15000);
 			System.out.println("wait finished");
-		//	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		//	String in = br.readLine();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

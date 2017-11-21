@@ -37,6 +37,12 @@ public class Pracownik {
 	public void setKawiarnia(Kawiarnia kawiarnia_id) {
 		this.kawiarnia_id = kawiarnia_id;
 	}
+	public Kawiarnia getKawiarnia_id() {
+		return kawiarnia_id;
+	}
+	public void setKawiarnia_id(Kawiarnia kawiarnia_id) {
+		this.kawiarnia_id = kawiarnia_id;
+	}
 	public String getImie() {
 		return imie;
 	}
@@ -66,6 +72,12 @@ public class Pracownik {
 	}
 	public void setStawka_godzinowa(Float stawka_godzinowa) {
 		this.stawka_godzinowa = stawka_godzinowa;
+	}
+	@Override
+	public String toString() {
+		return "Pracownik [id=" + id + ", pozostala_ilosc_dni_urlopu=" + pozostala_ilosc_dni_urlopu + ", kawiarnia_id="
+				+ kawiarnia_id + ", imie=" + imie + ", nazwisko=" + nazwisko + ", telefon=" + telefon + ", stanowisko="
+				+ stanowisko + ", stawka_godzinowa=" + stawka_godzinowa + "]";
 	}
 	
 }

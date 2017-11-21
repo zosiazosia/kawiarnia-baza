@@ -10,6 +10,15 @@ public class WypelnijDanymi {
 	public WypelnijDanymi(SessionFactory f){
 		this.factory = f;
 	}
+	
+	public static void dodajWszystko(){
+		dodajHurtownie();
+		dodajKawiarnie();
+		dodajZamowienia();
+		dodajPracownikow();
+		dodajDania();
+		dodajOferuje();
+	}
 	public static void dodajHurtownie(){
 		Session s = factory.openSession();
 		Transaction t = s.beginTransaction();

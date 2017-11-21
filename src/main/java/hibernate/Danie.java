@@ -1,6 +1,10 @@
 package hibernate;
 
 public class Danie {
+	@Override
+	public String toString() {
+		return "Danie [id=" + id + ", cena=" + cena + ", nazwa=" + nazwa + "]";
+	}
 	private Integer id;
 	private Float cena;
 	private String nazwa;

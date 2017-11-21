@@ -46,6 +46,11 @@ public class Zamowienie {
 	public void setData(String data) {
 		this.data = data;
 	}
+	@Override
+	public String toString() {
+		return "Zamowienie [id=" + id + ", kawiarnia_id=" + kawiarnia_id + ", hurtownia_id=" + hurtownia_id + ", data="
+				+ data + "]";
+	}
 	
 	
 }

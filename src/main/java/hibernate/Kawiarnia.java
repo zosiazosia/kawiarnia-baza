@@ -41,4 +41,9 @@ public class Kawiarnia {
 	public void setIlosc_gwiazdek_michelin(Integer ilosc_gwiazdek_michelin) {
 		this.ilosc_gwiazdek_michelin = ilosc_gwiazdek_michelin;
 	}
+	@Override
+	public String toString() {
+		return "Kawiarnia [id=" + id + ", ilosc_gwiazdek_michelin=" + ilosc_gwiazdek_michelin + ", adres=" + adres
+				+ ", nazwa=" + nazwa + "]";
+	}
 }

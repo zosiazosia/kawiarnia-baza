@@ -38,4 +38,8 @@ public class Hurtownia {
 	public void setTyp(String typ) {
 		this.typ = typ;
 	}
+	@Override
+	public String toString() {
+		return "Hurtownia [id=" + id + ", adres=" + adres + ", nazwa=" + nazwa + ", typ=" + typ + "]";
+	}
 }

@@ -26,5 +26,9 @@ public class Oferuje implements Serializable{
 	public void setDanie_id(Danie danie_id) {
 		this.danie_id = danie_id;
 	}
+	@Override
+	public String toString() {
+		return "Oferuje [kawiarnia_id=" + kawiarnia_id + ", danie_id=" + danie_id + "]";
+	}
 	
 }
